@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+#include<climits>
+using namespace std;
+
+int main() {
+    int n,st,end;
+    int sum, maxsum = INT_MIN;
+    cout << "Enter the number of elements: ";
+    cin >> n;
+
+    vector<int> array(n); // vector of size n
+    cout << "Enter the elements of the array: ";
+    for (int i = 0; i < n; i++)
+        cin >> array[i];
+    for (st = 0;st < n;st++)
+    {
+        sum = 0;
+        for (end = st;end < n;end++)
+        {
+            sum = sum + array[end];
+            maxsum = max(sum, maxsum);
+        }
+    }
+    cout << "maximum subarray sum is" << maxsum;
+    return 0;
+}
